@@ -23,40 +23,36 @@ SMPCache::SMPCache(int cpuid, std::vector<SMPCache * > * cacheVector){
 
 void SMPCache::conciseDumpStatsToFile(FILE* outFile){
 
-  fprintf(outFile,"%lu,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d\n",
-                  CPUId,
-                  numReadHits,
-                  numReadMisses,
-                  numReadOnInvalidMisses,
-                  numReadRequestsSent,
-                  numReadMissesServicedByOthers,
-                  numReadMissesServicedByShared,
-                  numReadMissesServicedByModified,
-                  numWriteHits,
-                  numWriteMisses,
-                  numWriteOnSharedMisses,
-                  numWriteOnInvalidMisses,
-                  numInvalidatesSent);
-
+  fprintf(outFile, "--------------------Cache %lu----------------------\n",CPUId);
+  fprintf(outFile, "Read Hits                      : %d\n",numReadHits);
+  fprintf(outFile, "Read Misses                    : %d\n",numReadMisses);
+  fprintf(outFile, "Read-On-Invalid Misses         : %d\n",numReadOnInvalidMisses);
+  fprintf(outFile, "Read Requests Sent             : %d\n",numReadRequestsSent);
+  fprintf(outFile, "Rd Misses Serviced Remotely    : %d\n",numReadMissesServicedByOthers);
+  fprintf(outFile, "Rd Misses Serviced by Shared   : %d\n",numReadMissesServicedByShared);
+  fprintf(outFile, "Rd Misses Serviced by Modified : %d\n",numReadMissesServicedByModified);
+  fprintf(outFile, "Write Hits                     : %d\n",numWriteHits);
+  fprintf(outFile, "Write Misses                   : %d\n",numWriteMisses);
+  fprintf(outFile, "Write-On-Shared Misses         : %d\n",numWriteOnSharedMisses);
+  fprintf(outFile, "Write-On-Invalid Misses        : %d\n",numWriteOnInvalidMisses);
+  fprintf(outFile, "Invalidates Sent               : %d\n",numInvalidatesSent);
+  fprintf(outFile, "-------------------------------------------------\n");
 }
 
 void SMPCache::dumpStatsToFile(FILE* outFile){
-  fprintf(outFile, "-----Cache %lu-----\n",CPUId);
-
-  fprintf(outFile, "Read Hits:                   %d\n",numReadHits);
-  fprintf(outFile, "Read Misses:                 %d\n",numReadMisses);
-  fprintf(outFile, "Read-On-Invalid Misses:      %d\n",numReadOnInvalidMisses);
-  fprintf(outFile, "Read Requests Sent:          %d\n",numReadRequestsSent);
-  fprintf(outFile, "Rd Misses Serviced Remotely: %d\n",numReadMissesServicedByOthers);
-  fprintf(outFile, "Rd Misses Serviced by Shared: %d\n",numReadMissesServicedByShared);
-  fprintf(outFile, "Rd Misses Serviced by Modified: %d\n",numReadMissesServicedByModified);
-
-  fprintf(outFile, "Write Hits:                  %d\n",numWriteHits);
-  fprintf(outFile, "Write Misses:                %d\n",numWriteMisses);
-  fprintf(outFile, "Write-On-Shared Misses:      %d\n",numWriteOnSharedMisses);
-  fprintf(outFile, "Write-On-Invalid Misses:     %d\n",numWriteOnInvalidMisses);
-  fprintf(outFile, "Invalidates Sent:            %d\n",numInvalidatesSent);
-
+  fprintf(outFile, "Cache, %lu\n",CPUId);
+  fprintf(outFile, "Read Hits, %d\n",numReadHits);
+  fprintf(outFile, "Read Misses, %d\n",numReadMisses);
+  fprintf(outFile, "Read-On-Invalid Misses, %d\n",numReadOnInvalidMisses);
+  fprintf(outFile, "Read Requests Sent, %d\n",numReadRequestsSent);
+  fprintf(outFile, "Rd Misses Serviced Remotely, %d\n",numReadMissesServicedByOthers);
+  fprintf(outFile, "Rd Misses Serviced by Shared, %d\n",numReadMissesServicedByShared);
+  fprintf(outFile, "Rd Misses Serviced by Modified, %d\n",numReadMissesServicedByModified);
+  fprintf(outFile, "Write Hits, %d\n",numWriteHits);
+  fprintf(outFile, "Write Misses, %d\n",numWriteMisses);
+  fprintf(outFile, "Write-On-Shared Misses, %d\n",numWriteOnSharedMisses);
+  fprintf(outFile, "Write-On-Invalid Misses, %d\n",numWriteOnInvalidMisses);
+  fprintf(outFile, "Invalidates Sent, %d\n",numInvalidatesSent);
 }
 
 int SMPCache::getCPUId(){

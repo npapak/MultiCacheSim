@@ -37,8 +37,6 @@ void MultiCacheSim::dumpStatsForAllCaches(bool concise){
         (*cacheIter)->dumpStatsToFile(CacheStats);
       }else{
 
-    fprintf(CacheStats,"CPUId, numReadHits, numReadMisses, numReadOnInvalidMisses, numReadRequestsSent, numReadMissesServicedByOthers, numReadMissesServicedByShared, numReadMissesServicedByModified, numWriteHits, numWriteMisses, numWriteOnSharedMisses, numWriteOnInvalidMisses, numInvalidatesSent\n");
-
         (*cacheIter)->conciseDumpStatsToFile(CacheStats);
       }
     }
@@ -136,7 +134,7 @@ char *MultiCacheSim::Identify(){
 MultiCacheSim::~MultiCacheSim(){
     std::vector<SMPCache *>::iterator cacheIter = allCaches.begin();
     std::vector<SMPCache *>::iterator cacheEndIter = allCaches.end();
-    for(; cacheIter != cacheEndIter; cacheIter++){
-      delete (*cacheIter);
-    }
+    //for(; cacheIter != cacheEndIter; cacheIter++){
+      //delete (*cacheIter);
+    //}
 }

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <assert.h>
+#include "timer.h"
 
 #define MAXVAL 100
 
@@ -65,11 +66,15 @@ int main(int argc, char *argv[]){
 
   pthread_mutex_init(&lock,NULL);
 
-  pthread_t acc[4],upd;
+	START_TIME();
+  pthread_t acc[7],upd;
   pthread_create(&acc[0],NULL,accessorThread,(void*)shrdPtr);
   pthread_create(&acc[1],NULL,accessorThread,(void*)shrdPtr);
   pthread_create(&acc[2],NULL,accessorThread,(void*)shrdPtr);
   pthread_create(&acc[3],NULL,accessorThread,(void*)shrdPtr);
+  pthread_create(&acc[4],NULL,accessorThread,(void*)shrdPtr);
+  pthread_create(&acc[5],NULL,accessorThread,(void*)shrdPtr);
+  pthread_create(&acc[6],NULL,accessorThread,(void*)shrdPtr);
   pthread_create(&upd,NULL,updaterThread,(void*)shrdPtr);
 
   pthread_join(upd,NULL);
@@ -77,5 +82,10 @@ int main(int argc, char *argv[]){
   pthread_join(acc[1],(void*)&res);
   pthread_join(acc[2],(void*)&res);
   pthread_join(acc[3],(void*)&res);
+  pthread_join(acc[4],(void*)&res);
+  pthread_join(acc[5],(void*)&res);
+  pthread_join(acc[6],(void*)&res);
+	STOP_TIME();
   fprintf(stderr,"Final value of res was %d\n",res); 
+	PRINT_TIME();
 }
