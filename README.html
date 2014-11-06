@@ -1,6 +1,10 @@
 <html><head><title>MultiCacheSim Documentation</title></head><body>
 <h1>MultiCacheSim: A coherent multiprocessor cache simulator.</h1>
 
+<h2>Nikos Papakonstantinou 2014</h2>
+
+<h3>Bug fixes in source files for GCC 4.8</h3>
+
 <h2>Brandon Lucia 2009-2011</h2>
 
 <h2>University of Washington</h2>
@@ -236,4 +240,34 @@ Think "Locking the bus" =).  If you decide to change the
 vector of caches (adding or removing them) you need to hold the lock that
 protects the vector (or the whole thing can go up in smoke).  This lock is 
 declared in MultiCacheSim.h</p>
+
+<h2>Usage:</h2>
+
+<p>1) Download and install Intel PIN tool.</p>
+
+<p>2) Set PIN_ROOT environmental variable
+
+export PIN_ROOT=/path/to/pin/tool
+
+</p>
+<p>3) Build the library
+
+make
+
+</p>
+<p>4) Move to simple example directory
+
+cd Test/simpe
+
+</p>
+<p>5) Build the example
+
+make
+
+</p>
+<p>6) Execute the example
+
+./simpe
+
+</p>
 </body></html>

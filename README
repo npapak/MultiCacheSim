@@ -1,11 +1,15 @@
 MultiCacheSim: A coherent multiprocessor cache simulator.
 =========================================================
+Nikos Papakonstantinou 2014
+----------------------------
+-Bug fixes in source files for GCC 4.8
+
+
 Brandon Lucia 2009-2011
 -----------------------
 University of Washington
 ------------------------
-  
-  
+
 License
 =========
 MultiCacheSim is free software; you can redistribute it and/or modify it 
@@ -242,3 +246,28 @@ Think "Locking the bus" =).  If you decide to change the
 vector of caches (adding or removing them) you need to hold the lock that
 protects the vector (or the whole thing can go up in smoke).  This lock is 
 declared in MultiCacheSim.h
+
+
+Usage:
+------
+1) Download and install Intel PIN tool.
+
+2) Set PIN_ROOT environmental variable
+
+export PIN_ROOT=/path/to/pin/tool
+
+3) Build the library
+
+make
+
+4) Move to simple example directory
+
+cd Test/simpe
+
+5) Build the example
+
+make
+
+6) Execute the example
+
+./simpe
