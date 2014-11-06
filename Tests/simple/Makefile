@@ -1,6 +1,6 @@
 CC=gcc
-CFLAGS += -pthread -g -O3 
-LDFLAGS= -pthread 
+CFLAGS += -pthread -g -O3
+LDFLAGS= -pthread
 
 all:
 	$(CC) -c $(CFLAGS) -o simple.o simple.c
@@ -8,4 +8,4 @@ all:
 
 clean:
 	-rm *.o
-	-rm simple 
+	-rm simple
